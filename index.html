@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EMBER CB — Test Bench</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="wordmark">EMBER&nbsp;CB</div>
+  <div class="sub">TEST BENCH — a separate rig for trying the new build</div>
+  <div class="warn">NOT PRODUCTION · Production Encrypted CB at encryptedcb.com is untouched and keeps working</div>
+</header>
+
+<section id="licence-panel" class="panel">
+  <h2>1 · Your licence on this handset</h2>
+  <p class="plain">Licences are per handset, in your name. You can license as many
+  handsets as you want — each one separately. Paste your licence once on a
+  handset and this rig knows you on that handset, even if you arrived here
+  from another app or browser.</p>
+  <div id="licence-state" class="state bad">No licence on this handset yet.</div>
+  <textarea id="licence-input" rows="3" placeholder="Paste your licence token here"></textarea>
+  <div class="row">
+    <button id="licence-apply">Recognize my licence</button>
+    <button id="licence-clear" class="ghost">Forget this handset's licence</button>
+  </div>
+  <div id="handset-line" class="plain small"></div>
+  <h3>What each licence opens</h3>
+  <table id="tier-table"></table>
+</section>
+
+<section id="scan-panel" class="panel">
+  <h2>2 · Channel scan</h2>
+  <p class="plain">Your licence decides how much of the band this handset may
+  scan. The sweep walks every channel your licence covers — no silent stop
+  at 20.</p>
+  <div class="row">
+    <button id="scan-start">Start scan</button>
+    <button id="scan-stop" class="ghost">Stop</button>
+  </div>
+  <div id="scan-readout" class="readout">—</div>
+  <div id="scan-ranges" class="plain"></div>
+  <div id="reserve-strip" class="reserve"></div>
+</section>
+
+<section id="mtof-panel" class="panel">
+  <h2>3 · Message over the house transport (MTOF)</h2>
+  <p class="plain">Messages here do not ride the ordinary web pipe. They are
+  turned into tokens by the house transport (MTOF), carried as one sealed
+  envelope, and opened at the far end — which checks the seal by hash
+  before showing you a word. Test traffic rides the house reserve,
+  channel <b>269</b>, kept apart from user channels.</p>
+  <textarea id="msg-input" rows="2" placeholder="Type a test message"></textarea>
+  <div class="row">
+    <button id="msg-send">Seal + send over MTOF</button>
+    <button id="msg-download" class="ghost">Download the envelope</button>
+    <label class="ghost filebtn">Open an envelope<input id="msg-open" type="file" accept=".json" hidden></label>
+  </div>
+  <div id="mtof-log" class="log"></div>
+  <div id="msg-out" class="state ok" hidden></div>
+</section>
+
+<footer>
+  <p>EMBER CB test bench · Apex Air Solutions · Built Nov 21, 2026 for
+  handset testing. The licence tiers, the scan, and the MTOF pipe on this
+  page are the test build — production keeps its own.</p>
+</footer>
+
+<script src="cb-core.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
